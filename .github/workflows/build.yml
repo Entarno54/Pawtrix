@@ -26,11 +26,11 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       - name: Zip Directory Linux
         if: runner.os == 'Linux'
-        run: zip -r pawtrix-${{ runner.os }}.zip pawtrix/bin/Release/net8.0
+        run: zip -r Pawtrix-${{ runner.os }}.zip Pawtrix/bin/Release/net8.0
       - name: Zip Directory Windows
         if: runner.os == 'Windows'
-        run: Compress-Archive -Path pawtrix/bin/Release/net8.0/* -DestinationPath pawtrix-${{runner.os}}.zip
+        run: Compress-Archive -Path Pawtrix/bin/Release/net8.0/* -DestinationPath Pawtrix-${{runner.os}}.zip
       - uses: actions/upload-artifact@v4
         with:
-          name: pawtrix-${{ runner.os }}
-          path: pawtrix-${{runner.os}}.zip
+          name: Pawtrix-${{ runner.os }}
+          path: Pawtrix-${{runner.os}}.zip
