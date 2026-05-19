@@ -8,10 +8,10 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
-using pawtrix.Models;
-using pawtrix.ViewModels;
+using Pawtrix.Models;
+using Pawtrix.ViewModels;
 
-namespace pawtrix.Views;
+namespace Pawtrix.Views;
 
 public partial class LoginWindowView : UserControl
 {

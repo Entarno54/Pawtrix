@@ -4,10 +4,10 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
-using pawtrix.ViewModels;
-using pawtrix.Views;
+using Pawtrix.ViewModels;
+using Pawtrix.Views;
 
-namespace pawtrix;
+namespace Pawtrix;
 
 public partial class App : Application
 {

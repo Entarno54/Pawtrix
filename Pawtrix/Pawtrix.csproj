@@ -21,6 +21,29 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
-        <PackageReference Include="Meowtrix.Sdk" Version="1.0.9" />
+        <PackageReference Include="Markdig" Version="1.2.0" />
+        <PackageReference Include="Meowtrix.Sdk" Version="1.1.0" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="11.0.0-preview.4.26230.115" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+        <!--><PackageReference Include="Meowtrix.Sdk" Version="1.0.9" /><!-->
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Matrix.Sdk.dir\.idea\.gitignore" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Matrix.Sdk.dir\.idea\encodings.xml" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Matrix.Sdk.dir\.idea\indexLayout.xml" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Matrix.Sdk.dir\.idea\projectSettingsUpdater.xml" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Matrix.Sdk.dir\.idea\workspace.xml" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Meowtrix.Sdk.dir\.idea\.gitignore" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Meowtrix.Sdk.dir\.idea\encodings.xml" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Meowtrix.Sdk.dir\.idea\indexLayout.xml" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Meowtrix.Sdk.dir\.idea\projectSettingsUpdater.xml" />
+      <Content Include="Meowtrix.Sdk\.idea\.idea.Meowtrix.Sdk.dir\.idea\workspace.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\SpaceView.axaml.cs">
+        <DependentUpon>SpaceView.axaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

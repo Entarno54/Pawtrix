@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="pawtrix.Objects.RoomButton"
+             x:Class="Pawtrix.Objects.RoomButton"
              x:DataType="Button" Background="DarkBlue" Foreground="White" CornerRadius="15" Click="OpenRoom">
 
 
@@ -39,7 +39,7 @@
                         Height = 50
                     };
 
-                    var hashtag = new Uri("avares://pawtrix/Assets/hashtag.png");
+                    var hashtag = new Uri("avares://Pawtrix/Assets/hashtag.png");
                     var opened = AssetLoader.Open(hashtag);
                     if (icon != null)
                     {

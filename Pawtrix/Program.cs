@@ -2,10 +2,8 @@
 using System;
 using System.Net.Http;
 using Meowtrix.Sdk;
-using pawtrix.ViewModels;
-using pawtrix.Views;
 
-namespace pawtrix;
+namespace Pawtrix;
 
 sealed class Program
 {

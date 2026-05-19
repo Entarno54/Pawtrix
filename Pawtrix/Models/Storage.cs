@@ -1,4 +1,4 @@
-namespace pawtrix.Models;
+namespace Pawtrix.Models;
 
 using System;
 using System.IO;
@@ -7,7 +7,7 @@ public static class Storage
 {
     private static readonly string AppDir = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), 
-        ".pawtrix"
+        ".Pawtrix"
     );
     
     private static readonly string TokenFile = Path.Combine(AppDir, "token.txt");

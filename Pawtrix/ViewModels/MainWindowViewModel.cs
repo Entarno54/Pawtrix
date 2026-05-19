@@ -10,7 +10,7 @@ using Meowtrix.Sdk.Core.Domain.RoomEvent;
 using Meowtrix.Sdk.Core.Infrastructure.Dto.User;
 using Tmds.DBus.Protocol;
 
-namespace pawtrix.ViewModels;
+namespace Pawtrix.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
@@ -18,9 +18,10 @@ public partial class MainWindowViewModel : ViewModelBase
     private ViewModelBase _currentPage = new LoginWindowViewModel(); // Текущая страница
     
     private readonly Dictionary<string, RoomViewModel> _rooms = new ();
+    public readonly Dictionary<string, SpaceViewModel> Spaces = new ();
     
     private RoomListViewModel? _roomListViewModel;
-    private Dictionary<string, MatrixProfile>  _matrixProfiles = new();
+    private readonly Dictionary<string, MatrixProfile>  _matrixProfiles = new();
     
     public void NavigateToRooms()
     {
@@ -32,7 +33,14 @@ public partial class MainWindowViewModel : ViewModelBase
     public void NavigateToRoom(string roomid, string roomName)
     {
         if (!_rooms.ContainsKey(roomid)) _rooms.Add(roomid, new RoomViewModel(roomid, roomName));
+        if (CurrentPage is SpaceViewModel space) _rooms[roomid].PrevSpace = space.Space.Id;
+        
         CurrentPage = _rooms[roomid];
+    }
+
+    public void NavigateToSpace(string spaceId)
+    {
+        CurrentPage = Spaces[spaceId];
     }
 
     public void HandleEvent(object sender, MatrixRoomEventsEventArgs eventArgs)

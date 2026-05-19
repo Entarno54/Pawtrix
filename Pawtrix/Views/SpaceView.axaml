@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Pawtrix.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Pawtrix.Views.SpaceView"
+             x:DataType="vm:SpaceViewModel">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:SpaceViewModel/>
+    </Design.DataContext>
+    
+        <Grid RowDefinitions="50,*">
+            <StackPanel Height="50" Background="DarkBlue">
+                <Grid ColumnDefinitions="50, *, 50">
+                    <Button Grid.Column="0" Width="50" Height="50" CornerRadius="15" Click="Exit" Background="Transparent">
+                        <Image Width="50" Height="50" Source="../../Assets/back.png"/>
+                    </Button>
+                    <TextBlock Grid.Column="1" Text="{Binding SpaceName}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Image Grid.Column="2" Width="50" Height="50" Source="../../Assets/hashtag.png"/>
+                </Grid>
+            </StackPanel>
+            <ListBox Grid.Row="1" ItemsSource="{Binding Rooms}" />
+        </Grid>
+</UserControl>

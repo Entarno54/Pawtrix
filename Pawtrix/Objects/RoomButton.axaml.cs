@@ -4,28 +4,31 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
-using pawtrix.ViewModels;
+using Meowtrix.Sdk.Core.Infrastructure.Dto.Room.Create;
+using Pawtrix.ViewModels;
 
-namespace pawtrix.Objects;
+namespace Pawtrix.Objects;
 
 public partial class RoomButton : Button
 {
-    private readonly string _roomId;
+    public readonly string RoomId;
+    public readonly RoomType RoomType;
 
     public RoomButton()
     {
         InitializeComponent();
-        _roomId = string.Empty;
+        RoomId = string.Empty;
     }
     
-    public RoomButton(string name, Bitmap? icon, string roomId)
+    public RoomButton(string name, Bitmap? icon, string roomId, RoomType roomType)
     {
         InitializeComponent();
         
         if (icon != null) Icon.Source = icon;
         Name = name;
         Text.Text = name;
-        _roomId = roomId;
+        RoomId = roomId;
+        RoomType = roomType;
     }
 
     public void OpenRoom(object? sender, RoutedEventArgs routedEventArgs)
@@ -34,8 +37,13 @@ public partial class RoomButton : Button
         if (Application.Current?.ApplicationLifetime 
             is not IClassicDesktopStyleApplicationLifetime { MainWindow.DataContext: MainWindowViewModel mainVm }) 
             return;
-        
-        Console.WriteLine("ToChat");
-        mainVm.NavigateToRoom(_roomId, Name!);
+
+        if (RoomType == RoomType.Space)
+        {
+            mainVm.NavigateToSpace(RoomId);
+        } else if (RoomType == RoomType.Room)
+        {
+            mainVm.NavigateToRoom(RoomId, Name!);
+        }
     }
 }

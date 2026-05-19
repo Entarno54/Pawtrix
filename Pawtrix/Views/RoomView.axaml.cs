@@ -6,18 +6,14 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Threading;
 using Avalonia.VisualTree;
 using Meowtrix.Sdk.Core.Domain.RoomEvent;
-using pawtrix.Objects;
-using pawtrix.ViewModels;
-using Tmds.DBus.Protocol;
+using Pawtrix.ViewModels;
 
-namespace pawtrix.Views;
+namespace Pawtrix.Views;
 
 public partial class RoomView: UserControl
 {
-    
     public RoomView()
     {
         InitializeComponent();
@@ -36,8 +32,17 @@ public partial class RoomView: UserControl
             {
                 MainWindow.DataContext: MainWindowViewModel mainVm
             }) return;
+        if (DataContext is not RoomViewModel viewModel) return;
         Console.WriteLine("ToChats");
-        mainVm.NavigateToRooms();
+
+        if (viewModel.PrevSpace != null)
+        {
+            mainVm.NavigateToSpace(viewModel.PrevSpace);
+        }
+        else
+        {
+            mainVm.NavigateToRooms();
+        }
     }
 
     private void TextBoxInput(object? sender, KeyEventArgs e)

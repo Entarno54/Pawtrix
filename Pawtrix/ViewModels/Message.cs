@@ -4,7 +4,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Meowtrix.Sdk.Core.Infrastructure.Dto.User;
 
-namespace pawtrix.ViewModels;
+namespace Pawtrix.ViewModels;
 
 public class MessageViewModel
 {

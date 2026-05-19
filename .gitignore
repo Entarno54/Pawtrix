@@ -24,6 +24,16 @@ bld/
 [Ll]og/
 [Vv][Ss][Pp][Ss][Cc][Cc]/
 
+#Test
+Pawtrix/Meowtrix.Sdk
+Meowtrix.Sdk
+#Test
+Pawtrix/Meowtrix.Sdk/
+Meowtrix.Sdk/
+#Test
+Pawtrix/Meowtrix.Sdk/*
+Meowtrix.Sdk/*
+
 ## [JetBrains]
 .idea/
 *.sln.iml

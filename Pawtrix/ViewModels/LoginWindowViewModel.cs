@@ -1,4 +1,4 @@
-namespace pawtrix.ViewModels;
+namespace Pawtrix.ViewModels;
 
 public class LoginWindowViewModel : ViewModelBase
 {

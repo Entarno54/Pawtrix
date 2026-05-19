@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
-using pawtrix.Views;
+using Pawtrix.Views;
 using Tmds.DBus.Protocol;
 
-namespace pawtrix.ViewModels;
+namespace Pawtrix.ViewModels;
 
 public class RoomViewModel : ViewModelBase
 {
@@ -12,6 +12,8 @@ public class RoomViewModel : ViewModelBase
     public object SelectedItem { get; set; }
 
     public bool Preloaded;
+    
+    public string? PrevSpace { get; set; }
 
     public ObservableCollection<MessageViewModel> Messages { get; } = [];
     

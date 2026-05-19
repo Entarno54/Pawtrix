@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace pawtrix.Views;
+namespace Pawtrix.Views;
 
 public partial class MainWindow : Window
 {

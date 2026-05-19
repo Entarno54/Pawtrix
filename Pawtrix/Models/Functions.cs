@@ -3,7 +3,7 @@ using Avalonia.Media.Imaging;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace pawtrix.Models;
+namespace Pawtrix.Models;
 
 public static class Functions
 {

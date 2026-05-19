@@ -1,10 +1,10 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:pawtrix.ViewModels"
+             xmlns:vm="using:Pawtrix.ViewModels"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="pawtrix.Views.RoomListView"
+             x:Class="Pawtrix.Views.RoomListView"
              x:DataType="vm:RoomListViewModel">
 
     <Design.DataContext>
@@ -13,7 +13,7 @@
         <vm:RoomListViewModel/>
     </Design.DataContext>
     
-    <Grid RowDefinitions="50,*">
+    <Grid RowDefinitions="50,100,*">
         <StackPanel Height="50" Background="DarkBlue">
             <Grid Background="DarkBlue" Height="50" HorizontalAlignment="Right" ColumnDefinitions="50,Auto">
                 <Button Grid.Column="0" CornerRadius="10" Background="Transparent" Click="Logout">
@@ -22,7 +22,11 @@
                 <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding UserName}"></TextBlock>
             </Grid>
         </StackPanel>
-        <ListBox Grid.Row="1" Background="Transparent" ItemsSource="{Binding Chats}">
-        </ListBox>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            <Button HorizontalAlignment="Stretch" Grid.Column="0" Name="Spaces" Height="80" VerticalAlignment="Center" Click="Set_Spaces"><TextBlock Background="Transparent"  VerticalAlignment="Center" HorizontalAlignment="Center">Spaces</TextBlock></Button>
+            <Button HorizontalAlignment="Stretch" Grid.Column="1" Name="Rooms" Height="80" VerticalAlignment="Center" Click="Set_Rooms"><TextBlock Background="Transparent"  VerticalAlignment="Center" HorizontalAlignment="Center">Rooms</TextBlock></Button>
+        </Grid>
+        <ListBox x:Name="RoomsList" Grid.Row="2" Background="Transparent" ItemsSource="{Binding Chats}" IsVisible="False"/>
+        <ListBox x:Name="SpacesList" Grid.Row="2" Background="Transparent" ItemsSource="{Binding Spaces}"/>
     </Grid>
 </UserControl>
