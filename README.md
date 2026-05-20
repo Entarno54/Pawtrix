@@ -32,3 +32,10 @@ dotnet restore
 dotnet build --configuration Release --no-restore
 cd Pawtrix/bin/Release/net8.0
 ```
+
+## Previews:
+<img src=".github/images/Login.png">
+<img src=".github/images/Rooms.png">
+<img src=".github/images/Spaces.png">
+<img src=".github/images/SpaceRooms.png">
+<img src=".github/images/Room.png">
