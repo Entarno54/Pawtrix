@@ -7,7 +7,7 @@
         x:Class="Pawtrix.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         xmlns:views="using:Pawtrix.Views"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/Logo.ico"
         Title="Pawtrix">
 
     <Design.DataContext>

@@ -3,9 +3,9 @@
              xmlns:vm="using:Pawtrix.ViewModels"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              x:Class="Pawtrix.Views.SpaceView"
-             x:DataType="vm:SpaceViewModel">
+             x:DataType="vm:SpaceViewModel" Theme="{StaticResource UserControlTheme}">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -14,7 +14,7 @@
     </Design.DataContext>
     
         <Grid RowDefinitions="50,*">
-            <StackPanel Height="50" Background="DarkBlue">
+            <StackPanel Height="50">
                 <Grid ColumnDefinitions="50, *, 50">
                     <Button Grid.Column="0" Width="50" Height="50" CornerRadius="15" Click="Exit" Background="Transparent">
                         <Image Width="50" Height="50" Source="../../Assets/back.png"/>

@@ -4,12 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Pawtrix.Objects.RoomButton"
-             x:DataType="Button" Background="DarkBlue" Foreground="White" CornerRadius="15" Click="OpenRoom">
-
+             x:DataType="Button" Click="OpenRoom" Background="#181825" Foreground="#cdd6f4">
 
             <Grid Height="50" ColumnDefinitions="50,Auto" Name="Grid">
                 <Image Width="50" Height="50" Source="../../Assets/hashtag.png" Grid.Column="0" Name="Icon"></Image>
-                <TextBlock Grid.Column="1" Name="Text" VerticalAlignment="Center">Test</TextBlock>
+                <TextBlock Grid.Column="1" Name="Text" VerticalAlignment="Center" Foreground="#cdd6f4">Test</TextBlock>
             </Grid>
     
             <!-->

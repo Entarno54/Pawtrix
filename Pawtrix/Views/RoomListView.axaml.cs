@@ -143,7 +143,7 @@ public partial class RoomListView: UserControl
                     {
                         viewModel.Spaces.Add(newButton);
                         
-                        _ = SetupSpace(room, newButton, mainVm, viewModel);
+                        _ = SetupSpace(room, roomName, mainVm, viewModel);
                     } else if (room.RoomType == RoomType.Room)
                     {
                         bool found = false;
@@ -193,9 +193,8 @@ public partial class RoomListView: UserControl
         SpacesList.IsVisible = false;
     }
 
-    private async Task SetupSpace(MatrixRoom space, RoomButton button, MainWindowViewModel mainVm, RoomListViewModel viewModel)
+    private async Task SetupSpace(MatrixRoom space, string name , MainWindowViewModel mainVm, RoomListViewModel viewModel)
     {
-
         SpaceViewModel spaceTab;
         
         Console.WriteLine("Hellothereitreal");

@@ -3,9 +3,9 @@
         xmlns:vm="using:Pawtrix.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
         x:Class="Pawtrix.Views.LoginWindowView"
-        x:DataType="vm:LoginWindowViewModel">
+        x:DataType="vm:LoginWindowViewModel" Theme="{StaticResource UserControlTheme}">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -13,12 +13,16 @@
         <vm:LoginWindowViewModel/>
     </Design.DataContext>
     
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center"/>
-        <TextBox PlaceholderText="Homeserver.Example" Text="{Binding Homeserver}"/>
-        <TextBox PlaceholderText="Login"  Text="{Binding Login}"/>
-        <TextBox PlaceholderText="Password"  PasswordChar="*" Text="{Binding Password}"/>
-        <Button Background="DarkBlue" HorizontalAlignment="Center" Click="Button_Login">Log in</Button>
-    </StackPanel>
+    <Border CornerRadius="15"  Background="#181825" MaxHeight="480" MaxWidth="300">
+        <Grid Margin="15" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="avares://Pawtrix/Assets/Logo.png" Width="150"/>
+            <TextBlock FontSize="20" FontWeight="Bold" Margin="15" Grid.Row="1" Foreground="#bac2de" Text="{Binding GreetingTop}" HorizontalAlignment="Center"/>
+            <TextBlock TextAlignment="Center" Margin="15" Grid.Row="2" Foreground="#bac2de" Text="{Binding Greeting}" HorizontalAlignment="Center"/>
+            <TextBox Margin="5" Grid.Row="3" PlaceholderText="Homeserver.Example" Text="{Binding Homeserver}"/>
+            <TextBox Margin="5" Grid.Row="4" PlaceholderText="Login"  Text="{Binding Login}"/>
+            <TextBox Margin="5" Grid.Row="5" PlaceholderText="Password"  PasswordChar="*" Text="{Binding Password}"/>
+            <Button Margin="15" Grid.Row="6" HorizontalAlignment="Center" Click="Button_Login">Log in</Button>
+        </Grid>
+    </Border>
     
 </UserControl>
