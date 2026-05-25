@@ -24,17 +24,19 @@
                 </Grid>
             </StackPanel>
             
-            <ListBox AutoScrollToSelectedItem="true" x:Name="MessageListBox" Name="MessageListBox" SelectedItem="{Binding SelectedItem}" KeyDown="TextBoxInput" Grid.Row="1" ItemsSource="{Binding Messages}" VerticalAlignment="Bottom">
-                <ListBox.ItemTemplate>
-                    <DataTemplate x:DataType="vm:MessageViewModel" >
-                        <Grid ColumnDefinitions="50,200,*">
-                            <Image Name="Icon" Source="../Assets/profile.png" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBlock Text="{Binding Sender}" Height="50" TextTrimming="CharacterEllipsis" MaxWidth="200"  FontWeight="Bold" Grid.Column="1" VerticalAlignment="Top" Name="MessageUser" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding Text}" MinHeight="50" Grid.Column="2" VerticalAlignment="Bottom" Name="MessageText" HorizontalAlignment="Left"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <ScrollViewer x:Name="MessageScroll" Grid.Row="1">
+                <ListBox x:Name="MessageListBox" Name="MessageListBox" SelectedItem="{Binding SelectedItem}" KeyDown="TextBoxInput" Grid.Row="1" ItemsSource="{Binding Messages}" VerticalAlignment="Bottom">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="vm:MessageViewModel" >
+                            <Grid ColumnDefinitions="50,200,*">
+                                <Image Name="Icon" Source="../Assets/profile.png" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBlock Text="{Binding Sender}" Height="50" TextTrimming="CharacterEllipsis" MaxWidth="200"  FontWeight="Bold" Grid.Column="1" VerticalAlignment="Top" Name="MessageUser" HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding Text}" MinHeight="50" Grid.Column="2" VerticalAlignment="Bottom" Name="MessageText" HorizontalAlignment="Left"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
 
                 <!-->
                 <ListBox.ItemsPanel>

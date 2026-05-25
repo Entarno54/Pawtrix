@@ -1,6 +1,8 @@
+using System;
 using System.Collections.ObjectModel;
-using Pawtrix.Views;
-using Tmds.DBus.Protocol;
+using System.Numerics;
+using Avalonia.Controls;
+using Avalonia.Threading;
 
 namespace Pawtrix.ViewModels;
 
@@ -15,6 +17,8 @@ public class RoomViewModel : ViewModelBase
     
     public string? PrevSpace { get; set; }
 
+    public ScrollViewer Scroller { get; set; }
+    
     public ObservableCollection<MessageViewModel> Messages { get; } = [];
     
     public RoomViewModel(string roomId, string roomName)
@@ -32,6 +36,10 @@ public class RoomViewModel : ViewModelBase
     {
         Messages.Add(message);
 
-        SelectedItem = message;
+        Console.WriteLine("scroller");
+        Console.WriteLine(Scroller);
+
+        Scroller.Offset = new Vector2(0, (float)Scroller.Extent.Height);
+        Console.WriteLine("scrolled to end");
     }
 }

@@ -21,7 +21,7 @@ public partial class RoomView: UserControl
 
     public void SendClick(object? sender, RoutedEventArgs a)
     {
-        if (sender is not Button button) return;
+        if (sender is not Button) return;
 
         SendMessage();
     }
@@ -83,7 +83,13 @@ public partial class RoomView: UserControl
         Console.WriteLine("Contextchange");
 
         if (DataContext is not RoomViewModel viewModel) return;
-        if (viewModel.Preloaded) return;
+        if (viewModel.Preloaded)
+        {
+            Console.WriteLine("Already preloaded, just scrolling to end");
+            var scrollViewer = MessageListBox.FindDescendantOfType<ScrollViewer>();
+            scrollViewer?.ScrollToEnd();
+            return;   
+        }
         viewModel.Preloaded = true;
         Console.WriteLine("Not preloaded yet");
 
@@ -94,6 +100,8 @@ public partial class RoomView: UserControl
     {
         Console.WriteLine("Hello");
         if (DataContext is not RoomViewModel viewModel) return;
+        
+        viewModel.Scroller = MessageScroll;
         
         int preloadedMessages = 0;
         
@@ -131,24 +139,6 @@ public partial class RoomView: UserControl
             MessageViewModel newMessage = new(message.SenderUserId, message.Message);
             
             viewModel.AddMessage(newMessage);
-            
-            var scrollViewer = MessageListBox.FindDescendantOfType<ScrollViewer>();
-            scrollViewer?.ScrollToEnd();
-        }
-
-        while (DataContext is RoomViewModel)
-        {
-            int num = viewModel.Messages.Count;
-
-            while (num == viewModel.Messages.Count)
-            {
-                await Task.Delay(200);
-            }
-            
-            Console.WriteLine("new message");
-            
-            var scrollViewer = MessageListBox.FindDescendantOfType<ScrollViewer>();
-            scrollViewer!.Offset = new Vector(0, scrollViewer.Extent.Height);
         }
     }
 }

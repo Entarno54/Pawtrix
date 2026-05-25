@@ -15,14 +15,19 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
+    
     <Window.DataTemplates>
-        <!-- Связываем ViewModel с конкретной View -->
         <DataTemplate DataType="{x:Type vm:LoginWindowViewModel}">
             <views:LoginWindowView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:RoomListViewModel}">
             <views:RoomListView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:RoomViewModel}">
+            <views:RoomView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SpaceViewModel}">
+            <views:SpaceView />
         </DataTemplate>
     </Window.DataTemplates>
 
